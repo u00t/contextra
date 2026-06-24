@@ -1,0 +1,113 @@
+:root {
+  --bg: #0d1117;
+  --card: #161b22;
+  --border: #2a313c;
+  --text: #e6edf3;
+  --muted: #8b949e;
+  --accent: #6e9fff;
+  --accent-2: #3fb950;
+  --warn: #d29922;
+  --danger: #f85149;
+  --radius: 12px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.topbar {
+  border-bottom: 1px solid var(--border);
+  padding: 16px 24px;
+  background: linear-gradient(180deg, #11161d, #0d1117);
+}
+.brand { display: flex; align-items: center; gap: 14px; }
+.logo {
+  font-size: 30px; color: var(--accent);
+  background: rgba(110,159,255,.12);
+  width: 48px; height: 48px; border-radius: 12px;
+  display: grid; place-items: center;
+}
+.brand h1 { margin: 0; font-size: 20px; }
+.tag { margin: 0; color: var(--muted); font-size: 13px; }
+
+.container { max-width: 960px; margin: 0 auto; padding: 28px 20px 60px; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  margin-bottom: 22px;
+}
+.card h2 { margin: 0 0 6px; font-size: 16px; }
+
+.muted { color: var(--muted); }
+.center { text-align: center; }
+.hidden { display: none; }
+.hint { font-size: 13px; color: var(--muted); margin-top: 12px; }
+.row-between { display: flex; justify-content: space-between; align-items: center; }
+
+/* Upload */
+.dropzone {
+  display: block; margin: 14px 0;
+  border: 1.5px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 34px; text-align: center;
+  cursor: pointer; color: var(--muted);
+  transition: border-color .15s, background .15s;
+}
+.dropzone:hover, .dropzone.drag { border-color: var(--accent); background: rgba(110,159,255,.06); color: var(--text); }
+
+button {
+  background: var(--accent); color: #04122e; border: none;
+  padding: 9px 18px; border-radius: 8px; font-weight: 600;
+  cursor: pointer; font-size: 14px;
+}
+button:disabled { opacity: .45; cursor: not-allowed; }
+button.ghost { background: transparent; color: var(--muted); border: 1px solid var(--border); }
+button.ghost:hover { color: var(--text); border-color: var(--accent); }
+
+/* Table */
+table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--border); font-size: 14px; }
+th { color: var(--muted); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; }
+tbody tr:hover { background: rgba(255,255,255,.02); }
+
+.badge { padding: 2px 9px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+.badge.done { background: rgba(63,185,80,.15); color: var(--accent-2); }
+.badge.pending, .badge.profiling { background: rgba(210,153,34,.15); color: var(--warn); }
+.badge.failed { background: rgba(248,81,73,.15); color: var(--danger); }
+
+/* Report */
+.score-hero { display: flex; align-items: center; gap: 26px; margin: 18px 0 24px; }
+.gauge {
+  width: 120px; height: 120px; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0;
+}
+.gauge-inner { text-align: center; }
+.gauge-score { font-size: 30px; font-weight: 700; }
+.gauge-grade { font-size: 13px; color: var(--muted); }
+
+.dims { flex: 1; display: grid; gap: 10px; }
+.dim-row { display: grid; grid-template-columns: 130px 1fr 48px; align-items: center; gap: 10px; font-size: 13px; }
+.bar { height: 8px; background: #21262d; border-radius: 6px; overflow: hidden; }
+.bar > span { display: block; height: 100%; background: var(--accent); border-radius: 6px; }
+
+.issues { margin: 0; padding-left: 18px; }
+.issues li { margin: 4px 0; font-size: 14px; }
+
+.section-title { margin: 22px 0 8px; font-size: 14px; color: var(--accent); }
+.pii { color: var(--danger); font-weight: 600; }
+.conf-high { color: var(--accent-2); }
+.conf-low { color: var(--warn); }
+
+.footer { text-align: center; padding: 24px; font-size: 13px; border-top: 1px solid var(--border); }
+code { background: #21262d; padding: 1px 6px; border-radius: 5px; font-size: 12px; }
+a.link { color: var(--accent); cursor: pointer; text-decoration: none; }
+a.link:hover { text-decoration: underline; }

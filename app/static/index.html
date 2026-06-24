@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contextra — AI Data Readiness Platform</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">◈</span>
+      <div>
+        <h1>Contextra</h1>
+        <p class="tag">AI Data Readiness Platform</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Upload -->
+    <section class="card upload-card">
+      <h2>1 · Upload a dataset</h2>
+      <p class="muted">Drop a CSV to ingest, profile, and score it for AI readiness.</p>
+      <form id="upload-form">
+        <label class="dropzone" id="dropzone">
+          <input type="file" id="file-input" accept=".csv" hidden />
+          <span id="dropzone-text">Click to choose a CSV, or drag it here</span>
+        </label>
+        <button type="submit" id="upload-btn" disabled>Analyze</button>
+      </form>
+      <p class="hint">No CSV handy? A <code>sample_data/customers.csv</code> ships with the repo.</p>
+    </section>
+
+    <!-- Datasets -->
+    <section class="card">
+      <div class="row-between">
+        <h2>2 · Datasets</h2>
+        <button class="ghost" id="refresh-btn">↻ Refresh</button>
+      </div>
+      <table id="datasets-table">
+        <thead>
+          <tr><th>Name</th><th>Source</th><th>Rows</th><th>Status</th><th>Score</th><th></th></tr>
+        </thead>
+        <tbody id="datasets-body">
+          <tr><td colspan="6" class="muted center">No datasets yet.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Report -->
+    <section class="card hidden" id="report-card">
+      <div class="row-between">
+        <h2>3 · AI Readiness Report</h2>
+        <div>
+          <button class="ghost" id="export-btn">⭳ Export JSON</button>
+          <button class="ghost" id="close-report">✕ Close</button>
+        </div>
+      </div>
+      <div id="report-body"></div>
+    </section>
+  </main>
+
+  <footer class="footer muted">
+    Contextra MVP · analysis + semantic enrichment + AI usability scoring
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
